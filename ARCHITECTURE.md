@@ -2,23 +2,17 @@
 
 ```
 ├── const
-│   └── <file #1>.const.ts
-│   └── ...
 ├── model
 │   └── dtm
-│   │   └── <file #1>.dtm.ts
-│   │   └── ...
 │   └── error
-│   │   └── <file #1>.error.ts
-│   │   └── ...
-├── controller
-│   └── root.controller.ts
-│   └── <module #1>.controller.ts
-│   └── ...
+├── repository
+│   └── connector
+│   └── service
+├── usecase
 ├── view
-│   └── components
-│   └── hooks
-│   └── pages
+│   └── component
+│   └── hook
+│   └── page
 ├── util
 │   └── <util #1>.util.ts
 │   └── ...
