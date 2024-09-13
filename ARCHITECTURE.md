@@ -14,15 +14,19 @@
 │   └── hook
 │   └── page
 ├── util
-│   └── <util #1>.util.ts
-│   └── ...
 ```
 
-`view` and `controller` are the two layers of the website's architecture.
+`view`, `repository` and `usecase` are the three layers of the website's architecture.
 
-`controller` is responsible for storing the app state, modifying the state, and transforming the state
+`usecase` is responsible for business logic implementaton.
+`repository` is responsible for storing the app state, modifying the state and communicating with the backend.
+`view` is responsible for converting the transformed app state into HTML, connecting HTML events to the `usecase` layer
 
-`view` is responsible for converting the transformed app state into HTML, connecting HTML events to the `controller` methods
+# Constants - `const`
+
+Each file can contain multiple definitions which share the same context.
+
+Enums, arrays of strings, strings, magic numbers, records of different sorts are all considered constants.
 
 # Models
 
@@ -31,77 +35,47 @@ In this directory we define the transfer protocols we use when connecting differ
 Communication between layers should always be typed, and layers should only communicate through values of these types:
 1. primitives (string is considered one)
 2. errors - defined in `model/error`
-3. enums - defined in `model/const`
-4. entities - more complex data, defined in `model/entity`
+4. dtm - complex typed data, defined in `model/dtm`
 
-## Constants - `model/const`
+## Data Transfer Models - `model/dtm`
 
-Each file can contain multiple definitions which share the same context.
+Each file contains one definition.
 
-Enums, arrays of strings, strings, magic numbers, records of different sorts are all considered constants.
+A DTM can be an interface, or a class which encapsulates its internal data transformations.
+Inheritance between DTMs is advised against.
 
-## Entities - `model/entity`
-
-Each file contains an entity definition.
-
-An entity can be an interface, or a class which encapsulates its internal data transformations.
-Inheritance between entities is advised against.
-
-## Errors - `model/error`
+## Typed errors - `model/error`
 
 Each file contains one definition, error classes usually inherit from
 built in `Error` class.
 
 These classes can be used in custom error handling or validation.
 
-# Controllers
+# Repository
 
-In this directory we define a controller class for each module.
+Here we define service classes for each module and connector classes for backend communication.
+Each repository class should be created via dependency injection for testing purposes.
+
+# Connectors - `repository/connector`
+A purpose of a connector class is to transform client data to a format which backend expects,
+and transform backend data to a format convenient to use on the client.
+
+# Services - `repository/service`
+A purpose of a service is to contain client state and define ways in which it can be modified.
+
+# Usecases (controllers)
+
+Here we define a controller class for each module.
 
 One file contains one class.
 
-A controller class can have a private inner state.
-
-A controller can have private methods for DRY purposes, but prioritizing "locality of behavior" is advised.
-
-The public methods a controller can expose are of two types: an `action` or a `selector`.
-
-The purpose of an action is modifying state in response to some event. for example: a button click, component initialization.
-Actions can be both sync and async.
-
-The purpose of a selector is to transform the controller state for the `view` layer to use it directly.
-So that the `view` layer is not performing any business logic.
-
-Example controller class:
-```ts
-export class EditorController {
-    private graph: LoveStory;
-    private strict: boolean;
-
-    constructor() {
-        // ...
-
-        makeAutoObservable(this);
-    }
-
-    // selectors
-
-    public selectGraphJsonRepresentation(): string;
-
-    // actions
-
-    public changeEditorMode(value: EditorMode): void;
-    public changeCodeInput(value: string): void;
-    public toggleStrictMode(): void;
-}
-```
-
-There is also a single `RootController` that contains all of the controllers.
-It is used for easier access through React Context.
+A controller class can have multiple services or connectors as dependencies.
+A controller class implements all the modules logic from HTML Events, to page initialization.
+Any logic should be fully separated from view into the controller.
 
 # View
 
-In this directory we define components (pages are also considered as components) of our UI and connect them to our controllers.
+Here we define components (pages are also considered as components) of our UI and connect them to our controllers.
 
 Each component can consist of:
  - `.component.tsx` - main component file. It can contain up to 2 components for "locality of behavior" purposes, but not more.
@@ -112,9 +86,9 @@ There is one css definition for the whole component.
  - `components/*.component.tsx` - parts of the main component.
 All of these components MUST be unique and specific to the component and be useless outside of the component context.
  - `components/*.scaffold.tsx` - a component 'scaffold', which encapsulates the page layout and also in some cases rendering logic.
-The scaffold imports all the other parts of the component as props and renders them in proper order.
+The scaffold imports all the other parts of the component as props and renders them in proper order. You could say it is a React way of doing Depedency injection.
 
-## Pages - `view/pages`
+## Pages - `view/page`
 
 In this directory we define components for our pages, which we then can use in our Router.
 
@@ -126,7 +100,7 @@ They cannot access any controller methods, they should not also operate with com
 
 A purpose of a hook is to handle some custom html event "the React way", nothing more.
 
-## Components - `view/components`
+## Components - `view/component`
 
 In this directory we define our reusable components which are not page specific.
 
