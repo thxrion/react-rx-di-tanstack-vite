@@ -1,0 +1,18 @@
+# Treat .tsx files as TypeScript for language statistics
+*.tsx linguist-language=TypeScript
+
+# Ensure all files have LF line endings
+* text=auto eol=lf
+
+# Explicitly set LF line endings for specific file types if needed
+*.tsx text eol=lf
+*.ts text eol=lf
+*.js text eol=lf
+*.jsx text eol=lf
+*.json text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.scss text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
