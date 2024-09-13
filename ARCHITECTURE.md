@@ -56,11 +56,11 @@ These classes can be used in custom error handling or validation.
 Here we define service classes for each module and connector classes for backend communication.
 Each repository class should be created via dependency injection for testing purposes.
 
-# Connectors - `repository/connector`
+## Connectors - `repository/connector`
 A purpose of a connector class is to transform client data to a format which backend expects,
 and transform backend data to a format convenient to use on the client.
 
-# Services - `repository/service`
+## Services - `repository/service`
 A purpose of a service is to contain client state and define ways in which it can be modified.
 
 # Usecases (controllers)
