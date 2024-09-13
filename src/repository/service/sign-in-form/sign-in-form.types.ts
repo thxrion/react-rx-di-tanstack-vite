@@ -9,5 +9,5 @@ export interface SignInFormState {
     errors: {
         email: InvalidEmailError | null;
         password: InvalidPasswordError | null;
-    },
+    };
 }

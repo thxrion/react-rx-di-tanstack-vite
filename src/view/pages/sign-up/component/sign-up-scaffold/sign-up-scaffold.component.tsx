@@ -13,6 +13,7 @@ interface ISignUpScaffoldProps {
 export function SignUpScaffold({ email, password, passwordRepeated, submit, onInit, onDestroy }: ISignUpScaffoldProps): JSX.Element {
     useEffect(() => {
         onInit();
+
         return onDestroy;
     }, []);
 
@@ -44,5 +45,5 @@ export function SignUpScaffold({ email, password, passwordRepeated, submit, onIn
                 </div>
             </form>
         </div>
-    )
+    );
 }

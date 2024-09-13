@@ -1,6 +1,6 @@
 interface ISignInRememberComponentProps {
     value: boolean;
-    disabled:boolean;
+    disabled: boolean;
     onChange(v: boolean): void;
 }
 
@@ -21,5 +21,5 @@ export function SignInRememberComponent({ value, disabled, onChange }: ISignInRe
                 Remember me
             </label>
         </div>
-    )
+    );
 }

@@ -1,12 +1,12 @@
 # Structure
 
 ```
+├── const
+│   └── <file #1>.const.ts
+│   └── ...
 ├── model
-│   └── const
-│   │   └── <file #1>.const.ts
-│   │   └── ...
-│   └── entity
-│   │   └── <file #1>.entity.ts
+│   └── dtm
+│   │   └── <file #1>.dtm.ts
 │   │   └── ...
 │   └── error
 │   │   └── <file #1>.error.ts

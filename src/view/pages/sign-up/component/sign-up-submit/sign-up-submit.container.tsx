@@ -8,5 +8,5 @@ import { SignUpSubmitComponent } from "./sign-up-submit.component";
 export function SignUpSubmit(): JSX.Element {
     const { loading } = useObservableState(UC.signUpForm.getState());
 
-    return <SignUpSubmitComponent loading={loading} onClick={UC.signUpForm.submit}/>;
+    return <SignUpSubmitComponent loading={loading} onClick={UC.signUpForm.submit} />;
 }

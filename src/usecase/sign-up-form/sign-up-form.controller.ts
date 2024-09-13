@@ -7,7 +7,9 @@ import { SESSION_TOKEN_KEY } from "const";
 
 export class SignUpFormController {
     private readonly signUpFormService: SignUpFormService;
+
     private readonly sessionService: SessionService;
+
     private readonly authConnector: AuthConnector;
 
     constructor() {
@@ -19,19 +21,19 @@ export class SignUpFormController {
     changeEmail = (value: string) => {
         this.signUpFormService.setEmail(value);
         this.signUpFormService.validateEmail();
-    }
+    };
 
     changePassword = (value: string) => {
         this.signUpFormService.setPassword(value);
         this.signUpFormService.validatePassword();
-    }
+    };
 
     changePasswordRepeated = (value: string) => {
         this.signUpFormService.setPasswordRepeated(value);
         this.signUpFormService.validatePassword();
-    }
+    };
 
-    submit = async () => {
+    submit = async() => {
         this.signUpFormService.validateEmail();
         this.signUpFormService.validatePassword();
 
@@ -50,6 +52,7 @@ export class SignUpFormController {
 
         if (!token) {
             this.signUpFormService.setLoading(false);
+
             return;
         }
 
@@ -57,11 +60,11 @@ export class SignUpFormController {
         localStorage.setItem(SESSION_TOKEN_KEY, token);
 
         router.navigate({ to: "/private" });
-    }
+    };
 
     reset = () => {
         this.signUpFormService.reset();
-    }
+    };
 
     getState = () => (
         this.signUpFormService.state$

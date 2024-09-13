@@ -1,5 +1,3 @@
-const common = require("./common");
-
 exports.plugins = [
     "react"
 ];

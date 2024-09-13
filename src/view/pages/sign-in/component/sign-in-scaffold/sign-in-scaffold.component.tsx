@@ -17,6 +17,7 @@ export function SignInScaffold({ email, password, remember, submit, onInit, onDe
 
     useEffect(() => {
         onInit();
+
         return onDestroy;
     }, []);
 
@@ -41,5 +42,5 @@ export function SignInScaffold({ email, password, remember, submit, onInit, onDe
                 </div>
             </form>
         </div>
-    )
+    );
 }

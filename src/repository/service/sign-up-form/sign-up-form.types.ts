@@ -8,5 +8,5 @@ export interface SignUpFormState {
     errors: {
         email: InvalidEmailError | null;
         password: PasswordsMismatchError | InvalidPasswordError | null;
-    },
+    };
 }

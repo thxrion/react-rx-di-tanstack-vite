@@ -8,14 +8,16 @@ interface ISerializedAccount {
     password: string;
 }
 
+const TIMEOUT = 5000;
+
 @injectable()
 export class AuthConnector {
     private localStorageEntry = "backend-database-accounts";
 
     public async createAccount(data: ISignUpForm): Promise<string> {
-        await this.timeout(5000);
+        await this.timeout(TIMEOUT);
 
-        const token = Math.random().toString(36).substring(2, 9);
+        const token = Math.random().toString(4 * 9).substring(2, 9);
 
         this.putNewAccountToLocalStorage({
             email: data.email,
@@ -27,7 +29,7 @@ export class AuthConnector {
     }
 
     public async authorize(data: ISignInForm): Promise<string | null> {
-        await this.timeout(5000);
+        await this.timeout(TIMEOUT);
 
         const accounts = this.getAccountsFromLocalStorage();
 

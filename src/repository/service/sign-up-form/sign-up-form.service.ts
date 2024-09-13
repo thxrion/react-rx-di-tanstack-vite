@@ -21,7 +21,7 @@ const defaultState: SignUpFormState = {
         email: null,
         password: null,
     },
-}
+};
 
 @singleton()
 export class SignUpFormService extends ProtoService<SignUpFormState> {
@@ -37,31 +37,46 @@ export class SignUpFormService extends ProtoService<SignUpFormState> {
 
     setEmail(value: string) {
         this.push({
-            values: { ...this.state.values, email: value }
+            values: {
+                ...this.state.values,
+                email: value 
+            }
         });
     }
 
     validateEmail() {
         this.push({
-            errors: { ...this.state.errors, email: InvalidEmailError.validate(this.state.values.email)}
+            errors: {
+                ...this.state.errors,
+                email: InvalidEmailError.validate(this.state.values.email)
+            }
         });
     }
 
     touchEmail() {
         this.push({
-            touched: { ...this.state.touched, email: true }
+            touched: {
+                ...this.state.touched,
+                email: true 
+            }
         });
     }
 
     setPassword(value: string) {
         this.push({
-            values: { ...this.state.values, password: value }
+            values: {
+                ...this.state.values,
+                password: value 
+            }
         });
     }
 
     setPasswordRepeated(value: string) {
         this.push({
-            values: { ...this.state.values, passwordRepeated: value }
+            values: {
+                ...this.state.values,
+                passwordRepeated: value 
+            }
         });
     }
 
@@ -79,13 +94,19 @@ export class SignUpFormService extends ProtoService<SignUpFormState> {
 
     touchPassword() {
         this.push({
-            touched: { ...this.state.touched, password: true }
+            touched: {
+                ...this.state.touched,
+                password: true 
+            }
         });
     }
 
     touchPasswordRepeated() {
         this.push({
-            touched: { ...this.state.touched, passwordRepeated: true }
+            touched: {
+                ...this.state.touched,
+                passwordRepeated: true 
+            }
         });
     }
 

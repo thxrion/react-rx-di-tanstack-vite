@@ -14,5 +14,5 @@ export function SignUpSubmitComponent({ loading, onClick }: ISignUpSubmitCompone
         >
             {loading ? "Loading..." : "Register"}
         </button>
-    )
+    );
 }

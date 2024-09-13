@@ -1,5 +1,5 @@
 {
-    "name": "@love-geometry/app",
+    "name": "react-rx-tanstack-vite",
     "private": true,
     "version": "1.0.0",
     "type": "module",
@@ -46,8 +46,8 @@
     },
     "eslintConfig": {
         "extends": [
-            "./lint/common",
-            "./lint/react"
+            "./lint/common.cjs",
+            "./lint/react.cjs"
         ],
         "ignorePatterns": [
             "lint/**",

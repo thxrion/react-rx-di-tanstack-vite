@@ -1,6 +1,6 @@
-import { useObservableState } from "observable-hooks"
+import { useObservableState } from "observable-hooks";
 
-import { UC } from "usecase"
+import { UC } from "usecase";
 
 import { HeaderComponent } from "./header.component";
 

@@ -2,10 +2,12 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, vi } from "vitest";
 import { HeaderComponent } from "./header.component";
 
+function Link({ to, children }: { to: string; children: React.ReactNode }) {
+    return <a href={to}>{children}</a>;
+}
+
 vi.mock("@tanstack/react-router", () => ({
-    Link: ({ to, children }: { to: string; children: React.ReactNode }) => (
-        <a href={to}>{children}</a>
-    ),
+    Link,
 }));
 
 describe("HeaderComponent", () => {

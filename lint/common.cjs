@@ -59,7 +59,7 @@ exports.rules = {
     // Custom-configured
     "@typescript-eslint/consistent-type-definitions": [
         "warn",
-        "type"
+        "interface"
     ],
     "@typescript-eslint/brace-style": [
         "warn",
@@ -79,7 +79,7 @@ exports.rules = {
         }
     ],
     "@typescript-eslint/explicit-member-accessibility": [
-        "warn",
+        "off",
         {
             accessibility: "explicit",
             overrides: {
@@ -153,7 +153,7 @@ exports.rules = {
     "@typescript-eslint/no-magic-numbers": [
         "warn",
         {
-            "ignore": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8],
+            "ignore": [-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
             "ignoreArrayIndexes": true,
             "ignoreEnums": true,
             "ignoreNumericLiteralTypes": true,

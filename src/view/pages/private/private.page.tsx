@@ -14,5 +14,5 @@ export function PrivatePage() {
         <div>
             Hello private stuff visible only to authenticated users!
         </div>
-    )
+    );
 }

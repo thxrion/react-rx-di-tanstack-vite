@@ -5,7 +5,6 @@ import { InvalidEmailError, InvalidPasswordError } from "model/error";
 
 import { SignInFormState } from "./sign-in-form.types";
 
-
 const defaultState: SignInFormState = {
     loading: false,
     values: {
@@ -21,7 +20,7 @@ const defaultState: SignInFormState = {
         password: null,
     },
     remember: false,
-}
+};
 
 @singleton()
 export class SignInFormService extends ProtoService<SignInFormState> {
@@ -41,37 +40,55 @@ export class SignInFormService extends ProtoService<SignInFormState> {
 
     setEmail(value: string) {
         this.push({
-            values: { ...this.state.values, email: value }
+            values: {
+                ...this.state.values,
+                email: value 
+            }
         });
     }
 
     validateEmail() {
         this.push({
-            errors: { ...this.state.errors, email: InvalidEmailError.validate(this.state.values.email)}
+            errors: {
+                ...this.state.errors,
+                email: InvalidEmailError.validate(this.state.values.email)
+            }
         });
     }
 
     touchEmail() {
         this.push({
-            touched: { ...this.state.touched, email: true }
+            touched: {
+                ...this.state.touched,
+                email: true 
+            }
         });
     }
 
     setPassword(value: string) {
         this.push({
-            values: { ...this.state.values, password: value }
+            values: {
+                ...this.state.values,
+                password: value 
+            }
         });
     }
 
     validatePassword() {
         this.push({
-            errors: { ...this.state.errors, password: InvalidPasswordError.validate(this.state.values.password)}
+            errors: {
+                ...this.state.errors,
+                password: InvalidPasswordError.validate(this.state.values.password)
+            }
         });
     }
 
     touchPassword() {
         this.push({
-            touched: { ...this.state.touched, password: true }
+            touched: {
+                ...this.state.touched,
+                password: true 
+            }
         });
     }
 

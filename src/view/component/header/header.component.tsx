@@ -33,5 +33,5 @@ export function HeaderComponent({ authorized, signOut }: IHeaderComponentProps) 
                 </Link>
             )}
         </div>
-    )
+    );
 }

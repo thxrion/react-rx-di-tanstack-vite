@@ -6,4 +6,4 @@ export const UC = {
     session: new SessionController(),
     signInForm: new SignInFormController(),
     signUpForm: new SignUpFormController(),
-}
+};

@@ -8,7 +8,7 @@ import { ISessionState } from "./session.types";
 const defaultState: ISessionState = {
     authorized: false,
     token: "",
-}
+};
 
 @injectable()
 export class SessionService extends ProtoService<ISessionState> {
@@ -16,6 +16,7 @@ export class SessionService extends ProtoService<ISessionState> {
         super(defaultState);
 
         const token = localStorage.getItem(SESSION_TOKEN_KEY);
+
         if (token) {
             this.setToken(token);
         }
