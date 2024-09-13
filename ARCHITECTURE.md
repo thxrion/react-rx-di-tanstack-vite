@@ -22,7 +22,7 @@
 `repository` is responsible for storing the app state, modifying the state and communicating with the backend.
 `view` is responsible for converting the transformed app state into HTML, connecting HTML events to the `usecase` layer
 
-# Constants - `const`
+# Constants
 
 Each file can contain multiple definitions which share the same context.
 
