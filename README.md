@@ -16,3 +16,7 @@ pnpm lint
 pnpm test
 # run tests
 ```
+
+# Rules
+
+See `ARCHITECTURE.md`
